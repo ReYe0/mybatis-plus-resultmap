@@ -35,7 +35,6 @@ public class StudentController {
      */
     @GetMapping("pageTestA/{page}/{size}")
     public Page<Student> pageTestA(@PathVariable Integer page, @PathVariable Integer size){
-        System.out.println("A");
         Page<Student> iPage = new Page<Student>(page, size);
         return studentService.getAll(iPage);
     }
