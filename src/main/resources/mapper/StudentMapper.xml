@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dreamyfish.mapper.StudentMapper">
+
+    <resultMap id="s_r" type="com.dreamyfish.entity.Student">
+        <id property="id" column="id"/>
+        <result property="studentName" column="student_name"/>
+
+        <!--collection:一对多；assocication:一对一  -->
+        <!--
+        <collection property="courses" ofType="com.dreamyfish.entity.Course">
+        <result column="cid" property="cid" />
+        <result column="course_name" property="courseName" />
+        <result column="student_id" property="studentId" />
+        </collection>-->
+
+        <collection property="courses" column="id"
+                    select="com.dreamyfish.mapper.CourseMapper.selectByStudentId"/>
+    </resultMap>
+
+    <select id="getAll" resultMap="s_r">
+        select * from student
+    </select>
+
+</mapper>
+
