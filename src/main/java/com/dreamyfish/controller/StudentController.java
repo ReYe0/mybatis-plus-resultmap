@@ -23,10 +23,11 @@ public class StudentController {
      * 多表联查，一对多
      * @return
      */
-//    @GetMapping("testA")
-//    public List<Student> testA(){
-//        return studentService.getAll();
-//    }
+    @GetMapping("/testA")
+    public List<Student> testA(){
+        //写的xml
+        return studentService.getAll1();
+    }
 
     /**
      * 多表联查，一对多，分页

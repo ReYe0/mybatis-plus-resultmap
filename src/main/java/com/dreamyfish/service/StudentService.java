@@ -8,6 +8,7 @@ import com.dreamyfish.mapper.StudentMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class StudentService {
@@ -15,9 +16,9 @@ public class StudentService {
     @Resource
     private StudentMapper studentMapper;
 
-    /*public List<Student> getAll() {
+    public List<Student> getAll1() {
         return studentMapper.getAll();
-    }*/
+    }
 
     public Page<Student> getAll(IPage<Student> iPage) {
         return studentMapper.getAll(iPage);
