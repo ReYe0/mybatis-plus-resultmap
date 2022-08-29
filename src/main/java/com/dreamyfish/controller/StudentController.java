@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
-@RequestMapping("student")
+@RequestMapping("/student")
 public class StudentController {
 
     @Resource
@@ -22,10 +23,10 @@ public class StudentController {
      * 多表联查，一对多
      * @return
      */
-    /*@GetMapping("testA")
-    public List<Student> testA(){
-        return studentService.getAll();
-    }*/
+//    @GetMapping("testA")
+//    public List<Student> testA(){
+//        return studentService.getAll();
+//    }
 
     /**
      * 多表联查，一对多，分页
@@ -33,7 +34,7 @@ public class StudentController {
      * @param size 每页条数
      * @return
      */
-    @GetMapping("pageTestA/{page}/{size}")
+    @GetMapping("/pageTestA/{page}/{size}")
     public Page<Student> pageTestA(@PathVariable Integer page, @PathVariable Integer size){
         Page<Student> iPage = new Page<Student>(page, size);
         return studentService.getAll(iPage);
@@ -45,7 +46,7 @@ public class StudentController {
      * @param size 每页条数
      * @return
      */
-    @GetMapping("pageTestB/{page}/{size}")
+    @GetMapping("/pageTestB/{page}/{size}")
     public Page<StudentCourseVo> pageTestB(@PathVariable Integer page, @PathVariable Integer size){
         Page<StudentCourseVo> iPage = new Page<StudentCourseVo>(page, size);
         return studentService.getPageVo(iPage);
